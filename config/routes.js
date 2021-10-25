@@ -23,7 +23,10 @@ module.exports.routes = {
   '/api/transactions/count' : 'Transactions/getTransactionsCount',
   '/api/transactions/block/:blockHash': 'Transactions/getTransactionsFromBlock',
   '/api/transactions/hash/:transactionHash': 'Transactions/getTransactionByHash',
-  '/api/transactions/:x/:n': 'Transactions/getXtransactionsAfterNth'
+  '/api/transactions/:x/:n': 'Transactions/getXtransactionsAfterNth',
+  '/api/accounts/count':'Accounts/getAccountsCount',
+  '/api/accounts/transactions/:accountId': 'Accounts/getAccountTransactions',
+  '/api/accounts/balance/:accountId':'Accounts/getAccountBalance'
 
 
   /***************************************************************************
