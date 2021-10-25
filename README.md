@@ -1,4 +1,4 @@
-# test-project
+# Polkadot API server - Sails.js framework
 
 a [Sails v1](https://sailsjs.com) application
 

@@ -6,56 +6,55 @@
  */
 
 module.exports = {
-  
-    getTransactionsCount: function(req, res) {
-        Transactions.count(function (err, count) {
-            if(err) {
-                res.sendStatus(500, {error: 'Database error'});
-            }
 
-            res.json({result: count})
-        })
-    },
+  getTransactionsCount: function(req, res) {
+    Transactions.count((err, count) => {
+      if(err) {
+        res.sendStatus(500, {error: 'Database error'});
+      }
 
-    getTransactionsFromBlock: function(req, res) {
-        const blockHash = req.params.blockHash;
-        Transactions.find({block_hash: blockHash}).exec(function (err, tx){
-            if(err) {
-                res.sendStatus(500, {error: 'Database error'});
-            }
+      res.json({result: count});
+    });
+  },
 
-            res.json({result: tx})
-        })
+  getTransactionsFromBlock: function(req, res) {
+    const blockHash = req.params.blockHash;
+    Transactions.find({blockHash: blockHash}).exec((err, tx) => {
+      if(err) {
+        res.sendStatus(500, {error: 'Database error'});
+      }
 
-    },
+      res.json({result: tx});
+    });
 
-    getTransactionByHash: function(req, res){
-        const transactionHash = req.params.transactionHash;
-        Transactions.find({hash: transactionHash}).exec(function (err, tx){
-            if(err) {
-                res.sendStatus(500, {error: 'Database error'});
-            }
+  },
 
-            res.json({result: tx})
-        })
-    },
+  getTransactionByHash: function(req, res){
+    const transactionHash = req.params.transactionHash;
+    Transactions.find({hash: transactionHash}).exec((err, tx) => {
+      if(err) {
+        res.sendStatus(500, {error: 'Database error'});
+      }
 
-    getXtransactionsAfterNth: function(req, res) {
-        const x = req.params.x;
-        const n = req.params.n;
-        Transactions.find({
-            id: {'<': n},
-            id: {'>=': n - x}
-        }).limit(x)
-        .exec(function (err, tx){
-            if(err) {
-                res.sendStatus(500, {error: 'Database error'});
-            }
+      res.json({result: tx});
+    });
+  },
 
-            res.json({result: tx})
-        })
-        
-    }
+  getXtransactionsAfterNth: function(req, res) {
+    const x = req.params.x;
+    const n = req.params.n;
+    Transactions.find({
+      id: {'<': n}
+    }).limit(x)
+    .exec((err, tx) => {
+      if(err) {
+        res.sendStatus(500, {error: 'Database error'});
+      }
+
+      res.json({result: tx});
+    });
+
+  }
 
 };
 

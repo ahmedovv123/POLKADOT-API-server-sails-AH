@@ -9,6 +9,7 @@ module.exports = {
 
   attributes: {
 
+
     hash: {
       type: 'string',
     },
@@ -42,8 +43,9 @@ module.exports = {
       type: 'string'
     },
 
-    block_hash: {
-      type: 'string'
+    blockHash: {
+      type: 'string',
+      columnName:'block_hash'
     },
 
     createdAt: {
