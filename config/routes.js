@@ -26,7 +26,11 @@ module.exports.routes = {
   '/api/transactions/:x/:n': 'Transactions/getXtransactionsAfterNth',
   '/api/accounts/count':'Accounts/getAccountsCount',
   '/api/accounts/transactions/:accountId': 'Accounts/getAccountTransactions',
-  '/api/accounts/balance/:accountId':'Accounts/getAccountBalance'
+  '/api/accounts/balance/:accountId':'Accounts/getAccountBalance',
+  '/api/blocks':'Blocks/getLastBlock',
+  '/api/blocks/num/:blockNumber':'Blocks/getBlockHashByNumber',
+  '/api/blocks/hash/:blockHash':'Blocks/getBlockByHash',
+  '/api/blocks/:x/:n':'Blocks/getXBlocksAfterNth'
 
 
   /***************************************************************************
