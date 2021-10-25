@@ -20,6 +20,10 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
+  '/api/transactions/count' : 'Transactions/getTransactionsCount',
+  '/api/transactions/block/:blockHash': 'Transactions/getTransactionsFromBlock',
+  '/api/transactions/hash/:transactionHash': 'Transactions/getTransactionByHash',
+  '/api/transactions/:x/:n': 'Transactions/getXtransactionsAfterNth'
 
 
   /***************************************************************************
@@ -32,6 +36,5 @@ module.exports.routes = {
   * not match any of those, it is matched against static assets.             *
   *                                                                          *
   ***************************************************************************/
-
 
 };
