@@ -1,3 +1,4 @@
+require('dotenv').config();
 /**
  * Datastores
  * (sails.config.datastores)
@@ -48,8 +49,9 @@ module.exports.datastores = {
     *    (See https://sailsjs.com/config/datastores for help.)                 *
     *                                                                          *
     ***************************************************************************/
-    // adapter: 'sails-mysql',
-    // url: 'mysql://user:password@host:port/database',
+     adapter: 'sails-postgresql',
+     url: process.env.DATABASE_URL,
+     pool: true
 
   },
 
